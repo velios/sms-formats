@@ -1,0 +1,7 @@
+^.*\*(\d{4})\s+•\s+.(?:алан|alan).*?(-?[\d\s.,]*\d)[\s‎]*([A-Z]{3}|₼)[\s‎]+║\s+.*(?:еревод|ransf).*?-[\s‎]*([\d\s.,]*\d)[\s‎]([A-Z]{3}|₼).*
+
+-----COLUMNS-----
+syncid#ccard / checking / deposit;balance;instrument;income;av_balance
+
+-----EXAMPLE-----
+ABB MOBILE Карта: **7836 • Баланс: ‎7.12‎₼‎ ║ 💸 Перевод: -‎50.00‎₼
