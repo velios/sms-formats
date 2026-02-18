@@ -1,4 +1,4 @@
-^.*\*(\d{4})\s+•\s+.(?:алан|alan).*?(-?[\d\s.,]*\d)[\s‎]*([A-Z]{3}|₼)[\s‎]+║\s+.*(?:еревод|ransf).*?-[\s‎]*([\d\s.,]*\d)[\s‎]([A-Z]{3}|₼).*
+^.*\*(\d{4})\s+•\s+.(?:алан|alan).*?(-?[\d\s.,]*\d)[\s‎]*([A-Z]{3}|₼)[\s‎]+║\s+.*(?:еревод|ransf).*?-[\s‎]*([\d\s.,]*\d)[\s‎]([A-Z]{3}|₼).*1
 
 -----COLUMNS-----
 syncid#ccard / checking / deposit;balance;instrument;income;av_balance
