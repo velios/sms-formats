@@ -8,6 +8,15 @@ from typing import Optional, Tuple
 
 from .github_client import GitHubClient
 
+SUCCESS_STATUSES = {
+    "otp",
+    "transaction",
+    "failed_transaction",
+    "otp_draft",
+    "transaction_draft",
+    "failed_transaction_draft",
+}
+
 
 @dataclass
 class GenerationOutcome:
@@ -89,6 +98,7 @@ def run_generation_flow(
                 "scripts/generate_sms_format.py",
                 "--company",
                 company_id,
+                "--allow-draft",
             ],
             cwd=str(repo_path),
             check=False,
@@ -99,7 +109,7 @@ def run_generation_flow(
         outcome = _parse_generator_output(generator_run)
         if outcome.status == "duplicate":
             return "duplicate", None, None
-        if outcome.status in {"otp", "transaction", "failed_transaction"}:
+        if outcome.status in SUCCESS_STATUSES:
             fresh_push_url = github_client.build_clone_url(github_repo)
             _run(["git", "remote", "set-url", "origin", fresh_push_url], cwd=repo_path)
             _run(["git", "push", "-u", "origin", branch_name], cwd=repo_path)
@@ -134,13 +144,15 @@ async def process_known_company_sms(
         company_id=company_id,
         sms_text=text,
     )
-    if status in {"otp", "transaction", "failed_transaction"} and branch_name:
+    if status in SUCCESS_STATUSES and branch_name:
         message = f"Sender:\n{sender}\n\nText:\n{text}"
+        is_draft_status = status.endswith("_draft")
         await github_client.find_or_create_pr(
             title=commit_title or f"[{company_name}] create format",
             body=message,
             head_branch=branch_name,
             base_branch=github_base_branch,
+            draft=is_draft_status,
         )
         return status
 

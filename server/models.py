@@ -33,8 +33,11 @@ StatusValue = Literal[
     "unknown_sender",
     "duplicate",
     "otp",
+    "otp_draft",
     "transaction",
+    "transaction_draft",
     "failed_transaction",
+    "failed_transaction_draft",
     "failed",
 ]
 

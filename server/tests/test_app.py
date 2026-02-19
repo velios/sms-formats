@@ -32,10 +32,8 @@ class FakeGitHubClient:
             }
         )
 
-    async def find_or_create_issue_and_comment(
-        self, title: str, comment_body: str, issue_body: str = ""
-    ):
-        self.created.append((title, comment_body, issue_body))
+    async def find_or_create_issue(self, title: str, issue_body: str = ""):
+        self.created.append((title, issue_body))
         return {"number": 1, "title": title}
 
 
@@ -112,7 +110,7 @@ def test_known_company_statuses(monkeypatch):
     monkeypatch.setenv("GITHUB_REPO", "owner/repo")
     monkeypatch.setattr(app_module, "GitHubClient", FakeGitHubClient)
 
-    statuses = ["duplicate", "transaction", "failed"]
+    statuses = ["duplicate", "transaction", "transaction_draft", "failed"]
     for expected_status in statuses:
 
         async def _fake_process_known_company_sms(**kwargs):

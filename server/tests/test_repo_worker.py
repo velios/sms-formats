@@ -10,13 +10,14 @@ class FakeGitHubClient:
     def build_clone_url(self, repo):
         return f"https://github.com/{repo}.git"
 
-    async def find_or_create_pr(self, *, title, body, head_branch, base_branch):
+    async def find_or_create_pr(self, *, title, body, head_branch, base_branch, draft=False):
         self.pr_calls.append(
             {
                 "title": title,
                 "body": body,
                 "head_branch": head_branch,
                 "base_branch": base_branch,
+                "draft": bool(draft),
             }
         )
         return {"number": 1}
@@ -49,6 +50,7 @@ def test_process_known_company_sms_uses_commit_title_and_sender_text(monkeypatch
     call = fake_client.pr_calls[0]
     assert call["title"] == "[Bank] create format"
     assert call["body"] == "Sender:\nBANK\n\nText:\nPayment 100"
+    assert call["draft"] is False
 
 
 def test_process_known_company_sms_fallback_title_when_commit_title_missing(monkeypatch):
@@ -72,3 +74,29 @@ def test_process_known_company_sms_fallback_title_when_commit_title_missing(monk
 
     assert status == "otp"
     assert fake_client.pr_calls[0]["title"] == "[Bank] create format"
+    assert fake_client.pr_calls[0]["draft"] is False
+
+
+def test_process_known_company_sms_marks_draft_pr(monkeypatch):
+    def _fake_run_generation_flow(**kwargs):
+        return "transaction_draft", "company-123", "[Bank] create format draft"
+
+    monkeypatch.setattr(repo_worker, "run_generation_flow", _fake_run_generation_flow)
+    fake_client = FakeGitHubClient()
+
+    status = asyncio.run(
+        repo_worker.process_known_company_sms(
+            github_client=fake_client,
+            github_repo="owner/repo",
+            github_base_branch="main",
+            company_id="123",
+            company_name="Bank",
+            sender="BANK",
+            text="Payment 100",
+        )
+    )
+
+    assert status == "transaction_draft"
+    assert fake_client.pr_calls
+    assert fake_client.pr_calls[0]["title"] == "[Bank] create format draft"
+    assert fake_client.pr_calls[0]["draft"] is True
