@@ -1,7 +1,7 @@
 Placanje (?:DINA|VISA) karticom\s+\*\*(\d{4}):\s*iznos\s+(\d[\d\s.,]*)\s*([A-Za-z]{3}),\s*mesto\s+([^,]+),\s+dana\s+(\d{2}\.\d{2}\.\d{4})\s+u\s+\d{2}:\d{2}:\d{2}h\.\s+Primedbe\s+([\d/-]+)\s+Vasa ALTA banka
 
 -----COLUMNS-----
-syncid;outcome;instrument;payee;date#dMy
+syncid;outcome;instrument;payee;date#dMy;comment
 
 -----EXAMPLE-----
 Placanje VISA karticom **4580: iznos 4,400.00RSD, mesto DZ MEDIGROUP DR, dana 11.12.2025 u 21:01:10h. Primedbe 011/3040-905 Vasa ALTA banka
