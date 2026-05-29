@@ -1,4 +1,4 @@
-Оплачено: (\d+\.\d+) (\w{3}) \((\d+\.\d+) (\w{3})\) (.*) Visa \*(\d{4})
+Оплачено: (\d+\.\d+) (\w{3}) \((\d+\.\d+) (\w{3})\) (.*) Visa \*(\d{4}).+
 
 -----COLUMNS-----
 outcome;acc_instrument;op_outcome;op_instrument;payee;syncid
