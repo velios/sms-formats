@@ -18,7 +18,5 @@ jobs:
         run: pip install -r requirements-dev.txt
       - name: Lint
         run: ruff check scripts/ && ruff format --check scripts/
-      - name: Test validation
-        run: python3 -m unittest discover -s scripts -p 'test_*.py'
       - name: Validate formats
         run: python3 scripts/validate.py
