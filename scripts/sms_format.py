@@ -2,6 +2,7 @@
 """Parser for format files and senders."""
 
 import re
+import unicodedata
 from dataclasses import dataclass
 from typing import List, Optional, Union
 
@@ -269,7 +270,7 @@ def validate_format_examples(fmt, file_path="", compiled_regex=None):
     expected_groups = len(fmt.regex_group_names)
     total = len(fmt.examples)
     for idx, example in enumerate(fmt.examples):
-        trimmed = _clean_text(example)
+        trimmed = unicodedata.normalize("NFC", _clean_text(example))
         preview = _example_preview(example)
         ctx = f"example {idx + 1}/{total}: {preview}"
         try:
@@ -342,7 +343,7 @@ def validate_cross_match(formats_with_regex):
     errors: List[ValidationError] = []
     for idx, (fmt, compiled, file_path) in enumerate(formats_with_regex):
         for ex_idx, example in enumerate(fmt.examples):
-            trimmed = _clean_text(example)
+            trimmed = unicodedata.normalize("NFC", _clean_text(example))
             for other_idx, (_, other_compiled, other_path) in enumerate(formats_with_regex):
                 if idx == other_idx:
                     continue
