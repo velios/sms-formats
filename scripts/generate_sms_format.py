@@ -58,8 +58,6 @@ async def run_prompt(
     system_message: str,
     model="gpt-6-luna",
     output_format="text",
-    max_tokens=4096,
-    temperature=0,
 ):
     """
     Use for one-off responses
@@ -77,8 +75,6 @@ async def run_prompt(
             {"role": "system", "content": system_message},
             {"role": "user", "content": prompt},
         ],
-        # "temperature": temperature,
-        # "max_tokens": max_tokens,
     }
     if model == "gpt-6-luna":
         request_payload["reasoning_effort"] = "low"
