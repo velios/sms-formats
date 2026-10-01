@@ -1,2 +1,2 @@
-Vietcombank
 com.VCB
+Vietcombank
