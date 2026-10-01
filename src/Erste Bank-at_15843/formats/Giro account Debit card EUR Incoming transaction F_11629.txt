@@ -1,0 +1,8 @@
+(\d[\d\s.,]*)\s+([A-Z]{3})\s+\|\s+Incoming\s+transaction\s+\|\s+(.+?)\s+\|\s+(.+)
+
+-----COLUMNS-----
+income;instrument;payee;comment
+
+-----EXAMPLE-----
+Giro account • Debit card
+100,20 EUR | Incoming transaction | FA Österreich | Familienbeihilfe
