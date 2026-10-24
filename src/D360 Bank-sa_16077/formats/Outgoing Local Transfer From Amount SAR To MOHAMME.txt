@@ -1,4 +1,4 @@
-Outgoing\s+Local\s+Transfer.*?From\s*:\s*\*+(\d{4}).*?Amount:\s*([A-Z]{3})\s+(\d[\d\s.,]*).*?To:\s*(.*?)\*+\s+IBAN:.*?On:\s*(\d{4}-\d{2}-\d{2})
+Outgoing\s+Local\s+Transfer.*?From\s+:\s+\*{2,4}(\d{4}).*?Amount:\s+(\S+)\s+(\d[\d\s.,]*).*?To:\s+(.+?)\*{4}\s+IBAN:.*?On:\s+(\d{4}-\d{2}-\d{2})
 
 -----COLUMNS-----
 syncid;instrument;outcome;payee;date#yMd

@@ -1,4 +1,4 @@
-MOI\s+Payment.*?Amount:\s*([A-Z]{3})\s+(\d[\d\s.,]*).*?Entity:\s*(.*?)\s+Service\s+Type:\s*(.*?)\s+Bill\s+No:.*?On:\s*(\d{4}-\d{2}-\d{2})
+MOI\s+Payment.*?Amount:\s+(\S+)\s+(\d[\d\s.,]*).*?Entity:(.+?)\s+Service\s+Type:\s+(.+?)\s+Bill\s+No:.*?On:\s+(\d{4}-\d{2}-\d{2})
 
 -----COLUMNS-----
 instrument;outcome;payee;comment;date#yMd

@@ -1,4 +1,4 @@
-Incoming\s+International\s+Transfer.*?Amount:\s*([A-Z]{3})\s+(\d[\d\s.,]*)\s*\(([A-Z]{3})\s+(\d[\d\s.,]*)\).*?From:\s*(.*?)\s+IBAN:.*?On:\s*(\d{4}-\d{2}-\d{2})
+Incoming\s+International\s+Transfer.*?Amount:\s+(\S+)\s+(\d[\d\s.,]*)\s+\((\S+)\s+(\d[\d\s.,]*)\).*?From:\s+(.+?)\s+IBAN:.*?On:\s+(\d{4}-\d{2}-\d{2})
 
 -----COLUMNS-----
 instrument;income;op_instrument;op_income;payee;date#yMd

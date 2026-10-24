@@ -1,4 +1,4 @@
-International\s+transfer.*?Amount:\s*([A-Z]{3})\s+(\d[\d\s.,]*)\s*\(([A-Z]{3})\s+(\d[\d\s.,]*)\).*?To:\s*(.*?)\s+[A-Z]{2}\d{2}.*?On:\s*(\d{4}-\d{2}-\d{2})
+International\s+transfer.*?Amount:\s+(\S+)\s+(\d[\d\s.,]*)\s+\((\S+)\s+(\d[\d\s.,]*)\).*?To:\s+(.+?)\s+[A-Z]{2}\d{2}.*?On:\s+(\d{4}-\d{2}-\d{2})
 
 -----COLUMNS-----
 op_instrument;op_outcome;instrument;outcome;payee;date#yMd

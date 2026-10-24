@@ -1,7 +1,7 @@
-Reversal:\s+International\s+Online.*?Amount:\s*([A-Z]{3})\s+(\d[\d\s.,]*).*?Card:\s*\*(\d{4}).*?At:\s*(.*?)\s+Account\s+number:.*?On:\s*(\d{4}-\d{2}-\d{2})
+Reversal:\s+International\s+Online.*?Amount:\s+(\S+)\s+(\d[\d\s.,]*).*?Card:\s+\*(\d{4}).*?Fee:\s+\S+\s+(\d[\d\s.,]*).*?At:\s+(.+?)\s+Account\s+number:.*?On:\s+(\d{4}-\d{2}-\d{2})
 
 -----COLUMNS-----
-instrument;income;syncid;payee;date#yMd
+instrument;income;syncid;fee;payee;date#yMd
 
 -----EXAMPLE-----
 Reversal: International Online

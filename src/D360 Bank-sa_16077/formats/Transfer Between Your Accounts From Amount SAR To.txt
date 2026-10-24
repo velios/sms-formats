@@ -1,7 +1,7 @@
-Transfer\s+Between\s+Your\s+Accounts.*?From:\s*\*?(\d{4}).*?Amount:\s*([A-Z]{3})\s+(\d[\d\s.,]*).*?To:\s*(\*\d{4}).*?Date:\s*(\d{4}-\d{2}-\d{2})
+Transfer\s+Between\s+Your\s+Accounts.*?From:\s+\*(\d{4}).*?Amount:\s+(\S+)\s+(\d[\d\s.,]*).*?To:\s+\*\d{4}.*?Date:\s+(\d{4}-\d{2}-\d{2})
 
 -----COLUMNS-----
-syncid;instrument;outcome;payee;date#yMd
+syncid;instrument;outcome;date#yMd
 
 -----EXAMPLE-----
 Transfer Between Your Accounts
