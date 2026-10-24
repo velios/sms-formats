@@ -1,4 +1,4 @@
-Credit\s+Card:\s+Credited.*?\(\*+(\d{4})\).*?credited\s+with\s+([A-Z]{3})\s+(\d[\d\s.,]*)\s+on:\s*(\d{4}-\d{2}-\d{2}).*?Balance:\s*([A-Z]{3})\s+(\d[\d\s.,]*)
+Credit\s+Card:\s+Credited.*?\(\*{2,4}(\d{4})\).*?credited\s+with\s+(\S+)\s+(\d[\d\s.,]*)\s+on:\s+(\d{4}-\d{2}-\d{2}).*?Balance:\s+(\S+)\s+(-?\d[\d\s.,]*)
 
 -----COLUMNS-----
 syncid;instrument;income;date#yMd;acc_instrument;balance

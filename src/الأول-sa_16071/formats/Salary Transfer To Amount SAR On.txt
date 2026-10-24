@@ -1,4 +1,4 @@
-Salary\s+Transfer.*?To:\s*\*+(\d{3,4}).*?Amount:\s*([A-Z]{3})\s+(\d[\d\s.,]*).*?On:\s*(\d{4}-\d{2}-\d{2})
+Salary\s+Transfer.*?To:\s+\*{2}(\d+).*?Amount:\s+(\S+)\s+(\d[\d\s.,]*).*?On:\s+(\d{4}-\d{2}-\d{2})
 
 -----COLUMNS-----
 syncid;instrument;income;date#yMd

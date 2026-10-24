@@ -1,4 +1,4 @@
-MOI\s+Payments.*?From:\s*\*+(\d{3,4}).*?Amount:\s*([A-Z]{3})\s+(\d[\d\s.,]*).*?Provider:\s*(.*?)\s+Service:\s*(.*?)\s+Date:\s*(\d{4}-\d{2}-\d{2})
+MOI\s+Payments.*?From:\s+\*{3}(\d+).*?Amount:\s+(\S+)\s+(\d[\d\s.,]*).*?Provider:\s+(.+?)\s+Service:\s+(.+?)\s+Date:\s+(\d{4}-\d{2}-\d{2})
 
 -----COLUMNS-----
 syncid;instrument;outcome;payee;comment;date#yMd

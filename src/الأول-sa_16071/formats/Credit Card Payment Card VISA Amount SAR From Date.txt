@@ -1,4 +1,4 @@
-Credit\s+Card:\s+Payment.*?Amount:\s*([A-Z]{3})\s+(\d[\d\s.,]*).*?From:\s*\*+(\d{3,4}).*?Date:\s*(\d{4}-\d{2}-\d{2})
+Credit\s+Card:\s+Payment.*?Amount:\s+(\S+)\s+(\d[\d\s.,]*).*?From:\s+\*{3}(\d+).*?Date:\s+(\d{4}-\d{2}-\d{2})
 
 -----COLUMNS-----
 instrument;outcome;syncid;date#yMd
